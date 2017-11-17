@@ -1,0 +1,162 @@
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Feedback Form</title>
+<!-- for-mobile-apps -->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<meta name="keywords" content="Feedback Widget Responsive, Login form web template, Sign up Web Templates, Flat Web Templates, Login signup Responsive web template, Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+
+
+
+
+<!-- //for-mobile-apps -->
+<link href='//fonts.googleapis.com/css?family=Amaranth:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
+<link href='//fonts.googleapis.com/css?family=Josefin+Slab:400,100,100italic,300,300italic,400italic,600,600italic,700,700italic' rel='stylesheet' type='text/css'/>
+<link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'/>
+<link href="/css/main.css" rel="stylesheet" type="text/css" media="all" />
+
+</head>
+<body>
+
+<div class="content">
+   <div class="item agileits-w3layouts">
+    <div class="block text main-agileits"> 
+    	<form th:action="@{/logout}" method="get">
+			<input name="registration" value="Logout"
+				type="Submit" style="background: #f2f2f2; height: 35px; text-decoration: none " />
+		</form>    
+	<h1 style="color:#0000cc;font-family: Roboto;">Feedback</h1>
+	<div class="main">
+	<!--  <h3 th:inline="text"> Hello [[${#httpServletRequest.remoteUser}]]</h3>  -->
+		
+		<form autocomplete="off" action="#" th:action="@{/home}"
+					th:object="${feedback}" method="post" class="form-horizontal frm"
+					role="form">
+					
+					
+					
+					
+					
+					<b><span th:utext="${successMessage}" style="color: #000"></span></b>
+					
+			   <h5><b><span>Your Name</span></b></h5>
+				<h5><b><span th:utext="${userName}" style="color: #000"></span></b></h5>
+				
+			<h5><b><span>Email</span></b></h5>
+				<h5 th:inline="text"> [[${#httpServletRequest.remoteUser}]]</h5><br/>
+        
+			<div class="rate">	
+			<h5><b><span>Feedback on Topics </span>	</b></h5>
+			<input id="user_id" name="user_id" th:value="${user_id}"  
+            type="hidden"/> 
+		<h5>Numerical Ability</h5>
+			<div class="radio-btns">
+					<div class="swit">					
+						<div class="check_box_one"> <div class="radio"> <label><input type="radio" th:field="*{numerial_abilty}" th:value="${5}" checked /><i></i> 5 </label> </div></div>
+                        <div class="check_box"> <div class="radio"> <label><input type="radio" th:field="*{numerial_abilty}" th:value="${4}" /><i></i> 4 </label> </div></div>
+						<div class="check_box"> <div class="radio"> <label><input type="radio" th:field="*{numerial_abilty}" th:value="${3}" /><i></i> 3 </label> </div></div>
+						<div class="check_box"> <div class="radio"> <label><input type="radio" th:field="*{numerial_abilty}" th:value="${2}" /><i></i> 2 </label> </div></div>
+                        <div class="check_box"> <div class="radio"> <label><input type="radio" th:field="*{numerial_abilty}" th:value="${1}" /><i></i> 1 </label> </div></div>
+						<div class="clear"></div>
+					</div>
+			</div>
+
+		<h5>Verbal Ability</h5>
+			<div class="radio-btns">
+					<div class="swit">								
+						<div class="check_box_one"> <div class="radio1"> <label><input type="radio" th:field="*{verbal_abilty}" th:value="${5}" checked /><i></i> 5 </label> </div></div>
+                        <div class="check_box"> <div class="radio1"> <label><input type="radio" th:field="*{verbal_abilty}" th:value="${4}" /><i></i> 4 </label> </div></div>
+						<div class="check_box"> <div class="radio1"> <label><input type="radio" th:field="*{verbal_abilty}" th:value="${3}" /><i></i> 3 </label> </div></div>
+						<div class="check_box"> <div class="radio1"> <label><input type="radio" th:field="*{verbal_abilty}" th:value="${2}" /><i></i> 2 </label> </div></div>
+						<div class="check_box"> <div class="radio1"> <label><input type="radio" th:field="*{verbal_abilty}" th:value="${1}" /><i></i> 1 </label> </div></div>
+						<div class="clear"></div>
+					</div>
+			</div>
+		 <h5>Soft Skills</h5>
+			<div class="radio-btns">
+					<div class="swit">								
+						<div class="check_box_one"> <div class="radio2"> <label><input type="radio" th:field="*{soft_skills}" th:value="${5}" th:checked="checked" /><i></i> 5 </label> </div></div>
+                        <div class="check_box"> <div class="radio2"> <label><input type="radio" type="radio" th:field="*{soft_skills}" th:value="${4}" /><i></i> 4 </label> </div></div>
+						<div class="check_box"> <div class="radio2"> <label><input type="radio" type="radio" th:field="*{soft_skills}" th:value="${3}" /><i></i> 3 </label> </div></div>
+						<div class="check_box"> <div class="radio2"> <label><input type="radio" type="radio" th:field="*{soft_skills}" th:value="${2}" /><i></i> 2 </label> </div></div>
+						<div class="check_box"> <div class="radio2"> <label><input type="radio" type="radio" th:field="*{soft_skills}" th:value="${1}" /><i></i> 1 </label> </div></div>
+						<div class="clear"></div>
+					</div>
+			</div>
+		<h5>Corporate Connect</h5>
+			<div class="radio-btns">
+					<div class="swit">								
+						<div class="check_box_one"> <div class="radio3"> <label><input type="radio" th:field="*{corporate_connect}" th:value="${5}"/><i></i> 5 </label> </div></div>
+                        <div class="check_box"> <div class="radio3"> <label><input type="radio" th:field="*{corporate_connect}" th:value="${4}" /><i></i> 4 </label> </div></div>
+						<div class="check_box"> <div class="radio3"> <label><input type="radio" th:field="*{corporate_connect}" th:value="${3}" /><i></i> 3 </label> </div></div>
+						<div class="check_box"> <div class="radio3"> <label><input type="radio" th:field="*{corporate_connect}" th:value="${2}" /><i></i> 2 </label> </div></div>
+						<div class="check_box"> <div class="radio3"> <label><input type="radio" th:field="*{corporate_connect}" th:value="${1}" /><i></i> 1 </label> </div></div>
+						<div class="clear"></div>
+					</div>
+			</div>
+
+		<h5><b><span>Feedback on Facilitator </span>	</b></h5>
+               <table>
+                <tr>
+                    <th>Name of the Facilitator</th>
+                    
+                    <th>Comments</th>
+                </tr>
+                <tr >
+                    <td>Shiva Kumar</td>
+                   
+                    <td> <input class="form-control" th:field="*{facilitator1}" th:required="required"/></td>
+                </tr>
+                 <tr >
+                    <td>Karthik</td>
+                    
+                    <td> <input  class="form-control" th:field="*{facilitator2}" th:required="required"/></td>
+                </tr>
+                <tr >
+                    <td>Vishwanath</td>
+                    
+                    <td> <input class="form-control" th:field="*{facilitator3}" th:required="required"/></td>
+                </tr>   
+                 <tr >
+                    <td>Sindhu</td>
+                    
+                    <td> <input class="form-control" th:field="*{facilitator4}" th:required="required"/></td>
+                </tr> 
+                
+                </table>
+               
+                <br/>
+                
+                
+                <h5>1. The things I liked most in workshop:</h5>
+                    <textarea style="width: 90%; color:#000" th:field="*{que1}" th:required="required"></textarea>
+                    <h5>2. The things that can be improved in workshop</h5>
+                    <textarea style="width: 90%; color:#000" th:field="*{que2}" th:required="required"></textarea>
+                    <h5>3. I look forward for the following modules to be covered in upcoming workshops </h5>
+                    <textarea style="width: 90%; color:#000" th:field="*{que3}" th:required="required"></textarea>
+              
+			</div>
+			<div class="clear"></div>
+			<br/>
+			
+			<button type="submit" value="submit" class="btn btn-success">Send Feedback</button>
+        </form>
+        </div>
+       
+                </div>
+       	 
+        </div>
+       </div>
+	
+	<p class="footer">&copy; *****</p>
+
+</body>
+</html>

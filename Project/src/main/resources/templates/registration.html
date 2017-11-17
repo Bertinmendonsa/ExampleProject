@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+	 <script th:src='@{http://codepen.io/assets/libs/fullpage/jquery.js}'></script>
+	<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" media="all" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+  	<script th:src="@{https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js}"></script>
+  	<script th:src="@{https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js}"></script>
+  	<title>Registration Form</title>
+</head>
+<body>
+<div class="content">
+   <div class="item agileits-w3layouts">
+    <div class="block text main-agileits"> 
+	<form th:action="@{/}" method="get">
+		<button class="btn btn-md btn-warning btn-block" type="Submit">Go To Login Page</button>
+	</form>	
+	
+	<div class="main">
+	
+	<div class="container">
+		<h2>Registration Form</h2>
+		
+				<form autocomplete="off" action="#" th:action="@{/registration}"
+					th:object="${user}" method="post" class="form-horizontal"
+					role="form">
+					
+					<b><span th:utext="${successMessage}"></span></b>
+					<div class="form-group">
+				<div class="col-sm-2 ">
+						
+						<label th:if="${#fields.hasErrors('name')}" th:errors="*{name}"
+								class="validation-message"></label>
+						<input type="text" th:field="*{name}" placeholder="Name" class="form-control" th:required="required" /> 
+						
+					</div>
+				</div>
+					<div class="form-group">
+				<div class="col-sm-2 ">
+						<input type="text" th:field="*{branch}" placeholder="Branch" class="form-control" th:required="required" /> 
+						<label th:if="${#fields.hasErrors('branch')}" th:errors="*{branch}" class="validation-message"></label>
+						
+						
+					</div>
+				</div>
+				<div class="form-group">
+				<div class="col-sm-3 ">
+				
+				
+				 <select class="form-control" id="sem" name="sem" th:field="*{sem}">
+              <option th:each="sem:${sem}" th:value="${sem}" th:text="${sem}">1</option>
+              </select>
+				</div>
+				</div>
+					<div class="form-group">
+						<div class="col-sm-2">
+							<input type="text" th:field="*{email}" placeholder="Email" class="form-control" th:required="required"/> 
+							<label th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="validation-message"></label>
+						</div>
+					</div>
+					
+					<div class="form-group">
+				<div class="col-sm-2 ">
+						
+						<!-- <label th:if="${#fields.hasErrors('contact')}" th:errors="*{contact}"
+								class="validation-message"></label> -->
+								<h4>Contact</h4>
+						<input type="text" th:field="*{contact}" placeholder="Contact"  pattern="^\d{10}$" class="form-control" th:required="required"/> 
+						
+					</div>
+				</div>
+					
+					<div class="form-group">
+						<div class="col-sm-2">
+							<input type="password" th:field="*{password}" placeholder="Password" class="form-control" th:required="required" />
+							 <label th:if="${#fields.hasErrors('password')}" th:errors="*{password}" class="validation-message"></label>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<div class="col-sm-4">
+							<button type="submit" class="btn btn-primary btn-block">Register User</button>
+						</div>
+					</div>
+					
+					
+					
+					
+				</form>
+			</div>
+		</div>
+	</div>
+	</div>
+</div>
+
+</body>
+</html>
