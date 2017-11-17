@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Register</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6 col-md-offset-3">
+			<form th:action="@{/show}" th:object="${reguser}" method="get">
+
+			<div class="table-responsive">  
+				<table  class="table">
+					<thead>
+						<tr>
+							<th>Sl.no</th>
+							<th>UserName</th>
+							<th>Email ID</th>
+							<th>Password</th>
+							<th>Phone Number</th>
+						</tr>
+					</thead>
+					<tbody>
+					<!-- 	<tr>
+							<td>1</td>
+							<td>Example</td>
+							<td>Example@gmail.com</td>
+							<td>***</td>
+							<td>12345</td>
+						</tr> -->
+						<tr th:each="reguser :${reguser}">
+							<td th:text="${reguser.id}"></td>
+							<td th:text="${reguser.username}"></td>
+							<td th:text="${reguser.email}"></td>
+							<td th:text="${reguser.password}"></td>
+							<td th:text="${reguser.phone}"></td>
+						</tr>
+					</tbody>
+				</table>
+				</div>
+							</form>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

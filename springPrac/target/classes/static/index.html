@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>bertin</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel='stylesheet' href='<%= org.webjars.AssetLocator.getWebJarPath("css/bootstrap-theme.min.css") %>'>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">WebSiteName</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="#">Home</a></li>
+      <li><a href="/show">Admin</a></li>
+      <li><a href="/reg">Register</a></li>
+      <li><a href="/login">login</a></li>
+    </ul>
+  </div>
+</nav>
+
+
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-6 col-md-offset-3">
+		<h3>A demonstration of how to access a Number field</h3>
+			<input type="number" id="myNumber" value="2" class="form-control">
+<input type="number" id="myNumber1" value="2" class="form-control">
+			<p>Click the button to get the number of the number field.</p>
+
+<button onclick="myFunction()">Try it</button>
+
+<p><strong>Note:</strong> input elements with type="number" are not supported in IE 9 and earlier versions.</p>
+
+<h3>addition of number <span id="demo"></span></h3>
+<h3>Subtration of number is <span id="demo3"></span></h3>
+<h3>Multiplication of number <span  id="demo1"></span></h3>
+<h3>Division of number <span id="demo2"></span></h3>
+			
+		</div>
+	</div>
+</div>
+
+
+<script>
+function myFunction() {
+    var x = document.getElementById("myNumber").value;
+    var y = document.getElementById("myNumber1").value;
+    document.getElementById("demo").innerHTML = Number(x)+Number(y);
+    document.getElementById("demo1").innerHTML = Number(x)*Number(y);
+    document.getElementById("demo2").innerHTML = Number(x)/Number(y);
+    document.getElementById("demo3").innerHTML = Number(x)-Number(y);
+}
+</script>
+
+</body>
+</html>
