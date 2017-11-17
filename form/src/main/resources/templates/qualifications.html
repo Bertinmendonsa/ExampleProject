@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" type="text/css" href="info.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <title>Edit Page Type</title>
+</head>
+<body>
+<form th:method="patch" th:action="@{/updateQualification}" th:object ="${qualifications}" id="reg">
+    <div class ="form-group col-xs-10">
+
+        <label><b>qId</b></label>
+        <input class="form-control input-sm" th:field="*{qID}" readonly="true"/>
+
+        <label><b>Qualification</b></label>
+        <input class="form-control input-sm" th:field="*{Qualification}"/>
+        
+        <label><b>Description</b></label>
+        <input class="form-control input-sm" th:field="*{Description}"/>
+
+        <button class="btn btn-info btn-sm">Edit</button>
+        </div>
+    </form>
+
+</body>
+</html>

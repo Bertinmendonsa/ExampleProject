@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" >  
+    <head>
+        <title>Invincible</title>
+    <link rel="stylesheet" type="text/css" href="info.css" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+<script th:src="@{https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js}"></script>
+<script th:src="@{https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js}"></script>
+<link rel="stylesheet" href="/boot/bootstrap-4.0.0-alpha.6-dist/css/bootstrap-grid.min.css" />
+<script th:src="@{/boot/bootstrap-4.0.0-alpha.6-dist/js/bootstrap.min.js}"></script>
+    
+</head>
+    <body>
+        <div class ="container">
+            <div class ="col-md-offset-4 col-md-10">
+                <h1 style="text-align:left; color: blue"> Info </h1>
+            </div>
+
+    <form th:action="@{/save}" th:object ="${info}" method="post" id="reg">
+        <div class ="form-group">
+             <label><b>Telephone</b></label>
+             <input class="form-control"  type="number" name="Telephone" th:field="*{Telephone}" required="true"/>
+            </div>
+        <div class ="form-group">
+             <label for="Mobile_number"><b>Mobile_number</b></label>
+        <input class="form-control"  id="Mobile_number" th:field="*{Mobile_number}"/>
+            </div>
+            <div class ="form-group">
+             <label for="descrip"><b>Clinic</b></label>
+        <textarea class="form-control" rows="5" id="descrip" th:field="*{Clinic}"> </textarea>
+            </div>
+        <div class ="form-group col-xs-4">
+                <label for="sel1">Select list (select one):</label>
+                <select class="form-control" th:field="*{qualifications}" id="sel1">
+                    <option th:each="i : ${qualification}" th:value="${i.qID}" th:text="${i.Qualification}"></option>
+                </select>
+                </div>
+                 <div class ="form-group col-xs-4">
+                <label for="sel2">Select list (select one):</label>
+                <select class="form-control" th:field="*{area_of_practices}" id="sel2">
+                    <option th:each="i : ${area_of_practice}" th:value="${i.pID}" th:text="${i.Area_of_practice}"></option>
+                </select>
+                </div>
+           <div class="col-md-12">
+
+               <button type="submit" class="btn btn-primary signupbtn">Save</button>
+               <button type="button"  class="btn btn-warning cancelbtn">Cancel</button>
+
+           </div>
+        </form>
+        </div>
+        <br />
+        <form class=" container form-inline" th:action="@{/saveQualification}" th:object="${qualifications}" method="post" id="qualifications">
+            <label><b>Qualification</b></label>
+            <input class="form-control" type="text" placeholder="Enter Qualification"  th:field="*{Qualification}" required="true"/>
+                <button type="submit" class="btn btn-primary btn-sm signupbtn">Add</button>
+        </form>
+         <form class=" container form-inline" th:action="@{/saveArea_of_practices}" th:object="${area_of_practices}" method="post" id="area_of_practices">
+            <label><b>Area_of_practice</b></label>
+            <input class="form-control" type="text" placeholder="Enter Area_of_practice"  th:field="*{Area_of_practice}" required="true"/>
+                <button type="submit" class="btn btn-primary btn-sm signupbtn">Add</button>
+        </form>
+        <br />
+        <table class="table table-responsive table-bordered">
+            <caption style="text-align:center; font-size:large " >Info</caption>
+            <thead>
+            <th>Id</th>
+            <th>Telephone</th>
+            <th>Mobile_number</th>
+            <th>Clinic</th>
+            <th>Deleted</th>
+            <th></th>
+            <th></th>
+            <tr th:each="info :${infoList}">
+                <td th:text="${info.ID}"></td>
+                <td th:text="${info.Telephone}"></td>
+                <td th:text="${info.Mobile_number}"></td>
+                <td th:text="${info.Clinic}"></td>
+                <td th:text="${info.deletedRecord}"></td>
+                <td><a th:href="@{/display/{Id}(Id=${info.ID})}" type="button" class="btn btn-info btn-sm">Edit</a></td>
+                <td><a th:href="@{/delete/{Id}(Id=${info.ID})}" type="button" class="btn btn-danger btn-sm">Delete</a></td>
+            </tr>
+            </thead>
+        </table>
+        <table class="table table-responsive table-bordered">
+            <caption style="text-align:center; font-size:large " >Qualifications</caption>
+            <thead>
+            <th>qID</th>
+            <th>Qualification</th>
+           
+            <th></th>
+            <th></th>
+            <tr th:each="qualifications :${qualification}">
+                <td th:text="${qualifications.qID}"></td>
+                <td th:text="${qualifications.Qualification}"></td>
+               
+                <td><a th:href="@{/displayPage/{qId}(qId=${qualifications.qID})}" type="button" class="btn btn-info btn-sm">Edit</a></td>
+                <td><a th:href="@{/deletePage/{qId}(qId=${qualifications.qID})}" type="button" class="btn btn-danger btn-sm">Delete</a></td>
+            </tr>
+            </thead>
+        </table>
+         <table class="table table-responsive table-bordered">
+            <caption style="text-align:center; font-size:large " >Area_of_practices</caption>
+            <thead>
+            <th>pID</th>
+            <th>Area_of_practice</th>
+            <th></th>
+            <th></th>
+            <tr th:each="area_of_practices :${area_of_practice}">
+                <td th:text="${area_of_practices.pID}"></td>
+                <td th:text="${area_of_practices.Area_of_practice}"></td>
+                <td><a th:href="@{/displayPage/{pId}(pId=${area_of_practices.pID})}" type="button" class="btn btn-info btn-sm">Edit</a></td>
+                <td><a th:href="@{/deletePage/{pId}(pId=${area_of_practices.pID})}" type="button" class="btn btn-danger btn-sm">Delete</a></td>
+            </tr>
+            </thead>
+        </table>
+    </body>
+    </html>  

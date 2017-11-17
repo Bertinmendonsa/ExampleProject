@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" type="text/css" href="info.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <title>Edit Page Type</title>
+</head>
+<body>
+<form th:method="patch" th:action="@{/updateArea_of_practices}" th:object ="${area_of_practices}" id="reg">
+    <div class ="form-group col-xs-10">
+
+        <label><b>pId</b></label>
+        <input class="form-control input-sm" th:field="*{qID}" readonly="true"/>
+
+        <label><b>Area_of_practice</b></label>
+        <input class="form-control input-sm" th:field="*{Area_of_practice}"/>
+        
+        <label><b>Description</b></label>
+        <input class="form-control input-sm" th:field="*{Description}"/>
+
+        <button class="btn btn-info btn-sm">Edit</button>
+        </div>
+    </form>
+
+</body>
+</html>
